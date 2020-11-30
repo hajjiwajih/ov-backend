@@ -1,0 +1,49 @@
+{
+  "name": "Orange-Voucher-api",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "test": "set DEBUG=loopback:connector:mongodb && node .",
+    "dev": "nodemon .",
+    "prod": "export NODE_ENV=production && nohup node . &",
+    "ibm-cf": "export NODE_ENV=production && node .",
+    "gen-yaml-doc": "lb export-api-def -o ov-openapi-def.yaml",
+    "gen-json-doc": "lb export-api-def --json -o ov-openapi-def.json",
+    "update": "npm update --depth 6",
+    "posttest": "npm run lint && npm audit"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "dotenv": "^8.2.0",
+    "form-data": "^3.0.0",
+    "helmet": "^3.22.0",
+    "loopback": "^3.27.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.5.1",
+    "loopback-connector-mongodb": "^5.2.3",
+    "mongodb": "^3.5.8",
+    "nodemon": "^2.0.4",
+    "pdfmake": "^0.1.65",
+    "serve-favicon": "^2.0.1",
+    "socket.io-client": "^2.3.0",
+    "strong-error-handler": "^3.4.0",
+    "swagger-ui": "^3.26.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "Orange-Voucher-server-side: This is a Orange Voucher backend server. You can find out more about Orange Voucher at https://orange.ditriot.tn:8443 or on facebook page, #orange_voucher. \nFor this API, you can use the bearer token to test the authorization"
+}

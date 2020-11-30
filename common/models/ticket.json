@@ -1,0 +1,135 @@
+{
+  "name": "ticket",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "serial": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "description": "Ticket serial number (used as primary key)"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "description": "Ticket code number (unique & encrypted)"
+    },
+    "amount": {
+      "type": "string",
+      "required": true,
+      "description": "Ticket price (also refered as amount)"
+    },
+    "ID": {
+      "type": "string",
+      "required": true,
+      "description": "Ticket salesman ID "
+    },
+    "issueDate": {
+      "type": "string",
+      "required": true,
+      "description": "Date of ticket insertion"
+    },
+    "expiryDate": {
+      "type": "string",
+      "required": true,
+      "description": "Date of ticket expiry"
+    },
+    "agent": {
+      "type": "string",
+      "required": true,
+      "description": "Orange agent name"
+    },
+    "ticketType": {
+      "type": "string",
+      "required": false,
+      "default": "RECHARGE MOBILE",
+      "description": "Ticket type in the order (RECHARGE MOBILE - RECHARGE INTERNET...)"
+    },
+    "_hash": {
+      "type": "string",
+      "required": false,
+      "description": "Hash of the code (strongly required to verify data integrity)"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "order": {
+      "type": "belongsTo",
+      "model": "order",
+      "foreignKey": "orderId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "maintainer",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateTickets"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "DENY",
+      "property": "insertWithTransaction"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY",
+      "property": "insertWithTransaction"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY",
+      "property": "updateTickets"
+    }
+  ],
+  "methods": {}
+}

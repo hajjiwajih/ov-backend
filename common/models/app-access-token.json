@@ -1,0 +1,26 @@
+{
+  "name": "AppAccessToken",
+  "base": "AccessToken",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ttl": {
+      "type": "number",
+      "description": "time to live in seconds (30 mins by default)",
+      "ttl": true,
+      "default": 1800
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,29 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "atlasMongo": {
+    "name": "atlasMongo",
+    "connector": "mongodb"
+  },
+  "ditriot_smtp": {
+    "name": "ditriot_smtp",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "192.168.0.254",
+        "secure": false,
+        "port": 25,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "symtelecom@ditriot.tn",
+          "pass": "Azerty123"
+        }
+      }
+    ]
+  }
+}

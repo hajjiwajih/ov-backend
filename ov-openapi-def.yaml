@@ -1,0 +1,2077 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Orange-Voucher-api
+  description: >-
+    Orange-Voucher-server-side: This is a Orange Voucher backend server. You can
+    find out more about Orange Voucher at https://orange.ditriot.tn:8443 or on
+    facebook page, #orange_voucher. 
+
+    For this API, you can use the bearer token to test the authorization
+basePath: /api
+paths:
+  '/users/{id}/accessTokens/{fk}':
+    get:
+      tags:
+        - user
+      summary: Find a related item by id for accessTokens.
+      operationId: user.prototype.__findById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppAccessToken'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - user
+      summary: Delete a related item by id for accessTokens.
+      operationId: user.prototype.__destroyById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - user
+      summary: Update a related item by id for accessTokens.
+      operationId: user.prototype.__updateById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AppAccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppAccessToken'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/users/{id}/accessTokens':
+    get:
+      tags:
+        - user
+      summary: Queries accessTokens of user.
+      operationId: user.prototype.__get__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AppAccessToken'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    post:
+      tags:
+        - user
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: user.prototype.__create__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AppAccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AppAccessToken'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - user
+      summary: Deletes all accessTokens of this model.
+      operationId: user.prototype.__delete__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/users/{id}/accessTokens/count':
+    get:
+      tags:
+        - user
+      summary: Counts accessTokens of user.
+      operationId: user.prototype.__count__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users:
+    post:
+      tags:
+        - user
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: user.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/user'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    get:
+      tags:
+        - user
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: user.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/users/{id}':
+    get:
+      tags:
+        - user
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: user.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - user
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'user.replaceById__put_users_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/user'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - user
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: user.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+    patch:
+      tags:
+        - user
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: user.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/user'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/users/{id}/replace':
+    post:
+      tags:
+        - user
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'user.replaceById__post_users_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/user'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/user'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/count:
+    get:
+      tags:
+        - user
+      summary: Count instances of the model matched by where from the data source.
+      operationId: user.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/login:
+    post:
+      tags:
+        - user
+      summary: Login a user with username/email and password.
+      operationId: user.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: >-
+            Related objects to include in the response. See the description of
+            return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created
+              on login.
+
+              Depending on the value of `include` parameter, the body may
+              contain additional properties:
+
+                - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
+
+            type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/logout:
+    post:
+      tags:
+        - user
+      summary: Logout a user with access token.
+      operationId: user.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/users/{id}/verify':
+    post:
+      tags:
+        - user
+      summary: Trigger user's identity verification with configured verifyOptions
+      operationId: user.prototype.verify
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/confirm:
+    get:
+      tags:
+        - user
+      summary: Confirm a user registration with identity verification token.
+      operationId: user.confirm
+      parameters:
+        - name: uid
+          in: query
+          required: true
+          type: string
+        - name: token
+          in: query
+          required: true
+          type: string
+        - name: redirect
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/reset:
+    post:
+      tags:
+        - user
+      summary: Reset password for a user with email.
+      operationId: user.resetPassword
+      parameters:
+        - name: options
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/change-password:
+    post:
+      tags:
+        - user
+      summary: Change a user's password.
+      operationId: user.changePassword
+      parameters:
+        - name: oldPassword
+          in: formData
+          required: true
+          type: string
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/reset-password:
+    post:
+      tags:
+        - user
+      summary: Reset user's password via a password-reset token.
+      operationId: user.setPassword
+      parameters:
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/request-password-reset:
+    post:
+      tags:
+        - user
+      summary: Request password reset procedure.
+      operationId: user.requestPasswordReset
+      parameters:
+        - name: email
+          in: body
+          description: Email of user changing the password.
+          required: false
+          schema:
+            description: Email of user changing the password.
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: Send back an email containing further instruction
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/change-email:
+    get:
+      tags:
+        - user
+      summary: Change user email upon verification. Duplicate emails not permitted
+      operationId: user.changeEmail
+      parameters:
+        - name: userId
+          in: query
+          description: UserId required to verify user.
+          required: false
+          type: string
+        - name: oldEmail
+          in: query
+          description: Current user email.
+          required: false
+          type: string
+        - name: newEmail
+          in: query
+          description: New user email.
+          required: false
+          type: string
+        - name: access_token
+          in: query
+          description: Requried to verify user requesting the email change.
+          required: false
+          type: string
+        - name: redirect
+          in: query
+          description: Redirect url after change.
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: Redirect route with context response.
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/reject-account:
+    post:
+      tags:
+        - user
+      summary: Reject account registration.
+      operationId: user.rejectAccount
+      parameters:
+        - name: request
+          in: body
+          description: Given userId and description after rejection.
+          required: false
+          schema:
+            description: Given userId and description after rejection.
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: '{ok : 200}.'
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/verify-account:
+    post:
+      tags:
+        - user
+      summary: Confirm account registration.
+      operationId: user.verifyAccount
+      parameters:
+        - name: user
+          in: body
+          description: Given user instance to verify before confirmation.
+          required: false
+          schema:
+            description: Given user instance to verify before confirmation.
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: '{200 : ok}'
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/reset-user-password:
+    get:
+      tags:
+        - user
+      summary: Reset user password (authenticated version).
+      operationId: user.resetUserPassword
+      parameters:
+        - name: accessToken
+          in: params
+          description: Reset token sent via email.
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: Redirect route with context response.
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /users/request-email-change:
+    post:
+      tags:
+        - user
+      summary: Request reset user email (authenticated version).
+      operationId: user.requestEmailChange
+      parameters:
+        - name: req
+          in: body
+          description: Given user instance to verify before confirmation.
+          required: false
+          schema:
+            description: Given user instance to verify before confirmation.
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                description: Redirect route with context response.
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}/order':
+    get:
+      tags:
+        - ticket
+      summary: Fetches belongsTo relation order.
+      operationId: ticket.prototype.__get__order
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}':
+    get:
+      tags:
+        - ticket
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: ticket.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - ticket
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'ticket.replaceById__put_tickets_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - ticket
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: ticket.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+    patch:
+      tags:
+        - ticket
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: ticket.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}/replace':
+    post:
+      tags:
+        - ticket
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'ticket.replaceById__post_tickets_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /tickets:
+    get:
+      tags:
+        - ticket
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: ticket.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /tickets/count:
+    get:
+      tags:
+        - ticket
+      summary: Count instances of the model matched by where from the data source.
+      operationId: ticket.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /tickets/insertWithTransaction:
+    post:
+      tags:
+        - ticket
+      summary: >-
+        Create a new instance of the model and persist it into the data source
+        with transaction.
+      operationId: ticket.insertWithTransaction
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data in json array format
+          required: false
+          schema:
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/x-any'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/orderTickets/{orderId}':
+    get:
+      tags:
+        - ticket
+      summary: get instances of the model filtred by order foreign key.
+      operationId: ticket.getOrderTickets
+      parameters:
+        - name: orderId
+          in: path
+          description: 'Order id filter EX: { "orderId": "536685c3c563"}'
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/x-any'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /tickets/updateTickets:
+    get:
+      tags:
+        - ticket
+      summary: 'Find & update required tickets to reflect ''belongTo'' relation bindings '
+      operationId: ticket.updateTickets
+      parameters:
+        - name: orderId
+          in: query
+          description: Order instance ID
+          required: false
+          type: string
+        - name: ticketsCount
+          in: query
+          description: Number of tickets required
+          required: false
+          type: number
+          format: double
+        - name: amount
+          in: query
+          description: Amount of ticket per order
+          required: false
+          type: number
+          format: double
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              info:
+                description: Count of updated tickets under required order
+                type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}/order/tickets/{fk}':
+    get:
+      tags:
+        - ticket
+      summary: Find a related item by id for tickets.
+      operationId: ticket.prototype.__findById__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - ticket
+      summary: Delete a related item by id for tickets.
+      operationId: ticket.prototype.__destroyById__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - ticket
+      summary: Update a related item by id for tickets.
+      operationId: ticket.prototype.__updateById__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}/order/tickets':
+    get:
+      tags:
+        - ticket
+      summary: Queries tickets of order.
+      operationId: ticket.prototype.__get__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    post:
+      tags:
+        - ticket
+      summary: Creates a new instance in tickets of this model.
+      operationId: ticket.prototype.__create__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - ticket
+      summary: Deletes all tickets of this model.
+      operationId: ticket.prototype.__delete__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/tickets/{id}/order/tickets/count':
+    get:
+      tags:
+        - ticket
+      summary: Counts tickets of order.
+      operationId: ticket.prototype.__count__order__tickets
+      parameters:
+        - name: id
+          in: path
+          description: ticket id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}/tickets/{fk}':
+    get:
+      tags:
+        - order
+      summary: Find a related item by id for tickets.
+      operationId: order.prototype.__findById__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - order
+      summary: Delete a related item by id for tickets.
+      operationId: order.prototype.__destroyById__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - order
+      summary: Update a related item by id for tickets.
+      operationId: order.prototype.__updateById__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for tickets
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}/tickets':
+    get:
+      tags:
+        - order
+      summary: Queries tickets of order.
+      operationId: order.prototype.__get__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    post:
+      tags:
+        - order
+      summary: Creates a new instance in tickets of this model.
+      operationId: order.prototype.__create__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/ticket'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ticket'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - order
+      summary: Deletes all tickets of this model.
+      operationId: order.prototype.__delete__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}/tickets/count':
+    get:
+      tags:
+        - order
+      summary: Counts tickets of order.
+      operationId: order.prototype.__count__tickets
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /orders:
+    post:
+      tags:
+        - order
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: order.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    get:
+      tags:
+        - order
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: order.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}':
+    get:
+      tags:
+        - order
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: order.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - order
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'order.replaceById__put_orders_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - order
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: order.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+    patch:
+      tags:
+        - order
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: order.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}/replace':
+    post:
+      tags:
+        - order
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'order.replaceById__post_orders_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/order'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /orders/count:
+    get:
+      tags:
+        - order
+      summary: Count instances of the model matched by where from the data source.
+      operationId: order.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /orders/lastValidatedOrders:
+    post:
+      tags:
+        - order
+      summary: Get last confirmed order for each given client.
+      operationId: order.getLastValidatedOrders
+      parameters:
+        - name: clients
+          in: body
+          description: >-
+            Client IDs in array format. See the description of return value for
+            more details.
+          required: false
+          schema:
+            description: >-
+              Client IDs in array format. See the description of return value
+              for more details.
+            type: array
+            items:
+              $ref: '#/definitions/x-any'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/orders/{id}/tickets/{nk}/order':
+    get:
+      tags:
+        - order
+      summary: Fetches belongsTo relation order.
+      operationId: order.prototype.__get__tickets__order
+      parameters:
+        - name: id
+          in: path
+          description: order id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for tickets.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/order'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /vouchers:
+    post:
+      tags:
+        - voucher
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: voucher.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/voucher'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    get:
+      tags:
+        - voucher
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: voucher.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/vouchers/{id}':
+    get:
+      tags:
+        - voucher
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: voucher.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    put:
+      tags:
+        - voucher
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'voucher.replaceById__put_vouchers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/voucher'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+    delete:
+      tags:
+        - voucher
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: voucher.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+        undefined:
+          description: Unknown error
+      deprecated: false
+    patch:
+      tags:
+        - voucher
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: voucher.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: voucher id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/voucher'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  '/vouchers/{id}/replace':
+    post:
+      tags:
+        - voucher
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'voucher.replaceById__post_vouchers_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/voucher'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/voucher'
+        undefined:
+          description: Unknown error
+      deprecated: false
+  /vouchers/count:
+    get:
+      tags:
+        - voucher
+      summary: Count instances of the model matched by where from the data source.
+      operationId: voucher.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+        undefined:
+          description: Unknown error
+      deprecated: false
+tags:
+  - name: user
+  - name: ticket
+  - name: order
+  - name: voucher
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  - application/xml
+  - text/xml
+produces:
+  - application/json
+  - application/xml
+  - text/xml
+  - application/javascript
+  - text/javascript
+definitions:
+  x-any:
+    properties: {}
+  AppAccessToken:
+    properties:
+      ttl:
+        default: 1800
+        description: time to live in seconds (30 mins by default)
+        type: number
+        format: double
+      id:
+        type: string
+      scopes:
+        description: Array of scopes granted to this access token.
+        type: array
+        items:
+          type: string
+      created:
+        type: string
+        format: date-time
+      userId:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - id
+    additionalProperties: false
+  user:
+    properties:
+      role:
+        description: User role property
+        type: string
+      autoID:
+        default: CL****
+        description: Auto increment user reference with pattern 'CL****'
+        type: string
+      cin:
+        description: User CIN identity number
+        type: string
+      phone:
+        description: 'User phone number (eg: +216 88 888 888)'
+        type: number
+        format: double
+      fname:
+        description: User first name property
+        type: string
+      lname:
+        description: User last name property
+        type: string
+      creationAt:
+        description: Datetime of user model creation
+        type: string
+        format: date-time
+      pwdChangedAt:
+        description: Datetime of user password last change
+        type: string
+        format: date-time
+      realm:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      emailVerified:
+        type: boolean
+      id:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - fname
+      - lname
+      - pwdChangedAt
+      - email
+    additionalProperties: false
+  order:
+    properties:
+      idOrder:
+        $ref: '#/definitions/ObjectID'
+      orderAuto:
+        default: COM****
+        description: Auto-increment reference with the pattern COM****
+        type: string
+      nbCodes:
+        description: Number of tickets included in the order
+        type: number
+        format: double
+      clientId:
+        description: ClientId as foreign-key to client model
+        type: string
+      clientRef:
+        description: ClientRef as a reference to client model reference
+        type: string
+      validated:
+        description: Flag that indicates confirmed order
+        type: boolean
+      isRejected:
+        description: Flag that indicates rejected order
+        type: boolean
+      issueDate:
+        description: Date of order submission
+        type: string
+        format: date-time
+      validationDate:
+        description: Date of order confirmation
+        type: string
+        format: date-time
+      ticketAmount:
+        default: 1000
+        description: Amount per ticket included in the order
+        type: number
+        format: double
+      comment:
+        default: ''
+        description: Any additionnal information sent with the order
+        type: string
+    required:
+      - nbCodes
+      - ticketAmount
+    additionalProperties: false
+  ticket:
+    properties:
+      serial:
+        description: Ticket serial number (used as primary key)
+        type: string
+      code:
+        description: Ticket code number (unique & encrypted)
+        type: string
+      amount:
+        description: Ticket price (also refered as amount)
+        type: string
+      ID:
+        description: 'Ticket salesman ID '
+        type: string
+      issueDate:
+        description: Date of ticket insertion
+        type: string
+      expiryDate:
+        description: Date of ticket expiry
+        type: string
+      agent:
+        description: Orange agent name
+        type: string
+      _hash:
+        description: Hash of the code (strongly required to verify data integrity)
+        type: string
+      orderId:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - serial
+      - code
+      - amount
+      - ID
+      - issueDate
+      - expiryDate
+      - agent
+    additionalProperties: false
+  voucher:
+    properties:
+      filename:
+        description: Inserted voucher filename
+        type: string
+      nbCodes:
+        description: Number of inserted tickets per voucher file
+        type: number
+        format: double
+      ticketAmount:
+        description: Amount per inserted ticket of voucher file
+        type: number
+        format: double
+      valid:
+        default: true
+        description: Flag indicating valid insertion or rollback transaction occured
+        type: boolean
+      issueDate:
+        description: Date of insertion of the vouchers
+        type: string
+        format: date-time
+      id:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - filename
+      - nbCodes
+      - ticketAmount
+    additionalProperties: false
+  ObjectID:
+    type: string
+    pattern: '^[a-fA-F\d]{24}$'

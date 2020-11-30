@@ -1,0 +1,63 @@
+{
+  "name": "voucher",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "filename": {
+      "type": "string",
+      "required": true,
+      "description": "Inserted voucher filename"
+    },
+    "nbCodes": {
+      "type": "number",
+      "required": true,
+      "description": "Number of inserted tickets per voucher file"
+    },
+    "ticketAmount": {
+      "type": "number",
+      "required": true,
+      "description": "Amount per inserted ticket of voucher file"
+    },
+    "ticketType": {
+      "type": "string",
+      "required": false,
+      "default": "RECHARGE MOBILE",
+      "description": "Ticket type in the order (RECHARGE MOBILE - RECHARGE INTERNET...)"
+    },
+    "valid": {
+      "type": "boolean",
+      "default": true,
+      "description": "Flag indicating valid insertion or rollback transaction occured"
+    },
+    "issueDate": {
+      "type": "date",
+      "description": "Date of insertion of the vouchers"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

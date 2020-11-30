@@ -1,0 +1,118 @@
+{
+  "name": "order",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idOrder": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "orderAuto": {
+      "type": "string",
+      "default": "COM****",
+      "description": "Auto-increment reference with the pattern COM****"
+    },
+    "nbCodes": {
+      "type": "number",
+      "required": true,
+      "description": "Number of tickets included in the order"
+    },
+    "clientId": {
+      "type": "string",
+      "description": "ClientId as foreign-key to client model"
+    },
+    "clientRef": {
+      "type": "string",
+      "description": "ClientRef as a reference to client model reference"
+    },
+    "validated": {
+      "type": "boolean",
+      "description": "Flag that indicates confirmed order"
+    },
+    "isRejected": {
+      "type": "boolean",
+      "description": "Flag that indicates rejected order"
+    },
+    "issueDate": {
+      "type": "date",
+      "description": "Date of order submission"
+    },
+    "validationDate": {
+      "type": "date",
+      "description": "Date of order confirmation"
+    },
+    "ticketAmount": {
+      "type": "number",
+      "required": true,
+      "default": 1000,
+      "description": "Amount per ticket included in the order"
+    },
+    "ticketType": {
+      "type": "string",
+      "required": false,
+      "default": "RECHARGE MOBILE",
+      "description": "Ticket type in the order (RECHARGE MOBILE - RECHARGE INTERNET...)"
+    },
+    "comment": {
+      "type": "string",
+      "default": "",
+      "description": "Any additionnal information sent with the order"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tickets": {
+      "type": "hasMany",
+      "model": "ticket",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "DENY",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "maintainer",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "client",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "methods": {}
+}

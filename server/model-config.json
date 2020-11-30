@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "ACL": {
+    "dataSource": "atlasMongo",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "atlasMongo",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "atlasMongo",
+    "public": false
+  },
+  "user": {
+    "dataSource": "atlasMongo",
+    "public": true
+  },
+  "ticket": {
+    "dataSource": "atlasMongo",
+    "public": true
+  },
+  "order": {
+    "dataSource": "atlasMongo",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "ditriot_smtp",
+    "public": false
+  },
+  "sequences": {
+    "dataSource": "atlasMongo",
+    "public": false
+  },
+  "voucher": {
+    "dataSource": "atlasMongo",
+    "public": true
+  },
+  "AppAccessToken": {
+    "dataSource": "atlasMongo",
+    "public": false
+  }
+}
