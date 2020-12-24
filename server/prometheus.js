@@ -1,6 +1,4 @@
-/**
- * Newly added requires
- */
+
 var Register = require('prom-client').register;  
 var Counter = require('prom-client').Counter;  
 var Histogram = require('prom-client').Histogram;  
