@@ -34,25 +34,3 @@ boot(app, __dirname, function (err) {
     app.start();
 });
 
-/**
- * This creates the module that we created in the step before.
- * In my case it is stored in the util folder.
- */
-var Prometheus = require('./prometheus');  
-
-/**
- * The below arguments start the counter functions
- */
-App.use(Prometheus.requestCounters);  
-App.use(Prometheus.responseCounters);
-
-/**
- * Enable metrics endpoint
- */
-Prometheus.injectMetricsRoute(App);
-
-/**
- * Enable collection of default metrics
- */
-Prometheus.startCollection();  
-
