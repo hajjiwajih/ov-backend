@@ -39,7 +39,6 @@ boot(app, __dirname, function (err) {
  * In my case it is stored in the util folder.
  */
 var Prometheus = require('./prometheus');  
-...
 
 /**
  * The below arguments start the counter functions
@@ -56,4 +55,4 @@ Prometheus.injectMetricsRoute(App);
  * Enable collection of default metrics
  */
 Prometheus.startCollection();  
-...
+
