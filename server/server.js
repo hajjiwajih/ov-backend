@@ -12,6 +12,11 @@ const env = require('dotenv').config({
   path: "../.env"
 });
 
+// Use the prom-client module to expose our metrics to Prometheus
+const client = require('prom-client');
+// enable prom-client to expose default application metrics
+const collectDefaultMetrics = client.collectDefaultMetrics;
+
 app.start = function () {
   // start the web server
   return app.listen(function () {
@@ -34,3 +39,8 @@ boot(app, __dirname, function (err) {
     app.start();
 });
 
+// expose our metrics at the default URL for Prometheus
+app.get('/metrics', (request, response) => {
+  response.set('Content-Type', client.register.contentType);
+  response.send(client.register.metrics());
+});

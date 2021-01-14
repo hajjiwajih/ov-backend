@@ -31,6 +31,7 @@
     "mongodb": "^3.5.8",
     "nodemon": "^2.0.4",
     "pdfmake": "^0.1.65",
+    "prom-client": "^13.0.0",
     "serve-favicon": "^2.0.1",
     "socket.io-client": "^2.3.0",
     "strong-error-handler": "^3.4.0",
