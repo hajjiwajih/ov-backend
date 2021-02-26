@@ -21,7 +21,7 @@ const log = SimpleNodeLogger.createSimpleLogger(opts);
 var apm = require('elastic-apm-node').start({
     
     // Set required service name (allowed characters: a-z, A-Z, 0-9, -, _, and space)
-    serviceName: 'first test',
+    serviceName: 'backend',
 // Use if APM Server requires a token
     secretToken: '< Secret token >',
 // Set custom APM Server URL (default: http://localhost:8200 )
