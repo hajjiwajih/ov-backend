@@ -11,11 +11,24 @@ var app = module.exports = loopback();
 const env = require('dotenv').config({
   path: "../.env"
 });
-
-// Use the prom-client module to expose our metrics to Prometheus
-const client = require('prom-client');
-// enable prom-client to expose default application metrics
-const collectDefaultMetrics = client.collectDefaultMetrics;
+//expose backend logs
+const SimpleNodeLogger = require('simple-node-logger');
+const opts = {
+  timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
+};
+const log = SimpleNodeLogger.createSimpleLogger(opts);
+//apm agent
+var apm = require('elastic-apm-node').start({
+    
+    // Set required service name (allowed characters: a-z, A-Z, 0-9, -, _, and space)
+    serviceName: 'first test',
+// Use if APM Server requires a token
+    secretToken: '< Secret token >',
+// Set custom APM Server URL (default: http://localhost:8200 )
+    serverUrl: 'http://172.30.163.178:8200',
+  })
+var err = new Error('Ups, something broke!')
+apm.captureError(err)
 
 app.start = function () {
   // start the web server
@@ -39,8 +52,3 @@ boot(app, __dirname, function (err) {
     app.start();
 });
 
-// expose our metrics at the default URL for Prometheus
-app.get('/metrics', (request, response) => {
-  response.set('Content-Type', client.register.contentType);
-  response.send(client.register.metrics());
-});

@@ -22,6 +22,7 @@
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "dotenv": "^8.2.0",
+    "elastic-apm-node": "^3.12.1",
     "form-data": "^3.0.0",
     "helmet": "^3.22.0",
     "loopback": "^3.27.0",
@@ -33,6 +34,7 @@
     "pdfmake": "^0.1.65",
     "prom-client": "^13.0.0",
     "serve-favicon": "^2.0.1",
+    "simple-node-logger": "^18.12.24",
     "socket.io-client": "^2.3.0",
     "strong-error-handler": "^3.4.0",
     "swagger-ui": "^3.26.0"
