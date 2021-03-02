@@ -25,7 +25,7 @@ var apm = require('elastic-apm-node').start({
 // Use if APM Server requires a token
     secretToken: '< Secret token >',
 // Set custom APM Server URL (default: http://localhost:8200 )
-    serverUrl: 'http://172.30.123.52:8200',
+    serverUrl: 'http://172.30.218.217:8200',
   })
 //var err = new Error('Ups, something broke!')
 //apm.captureError(err)
