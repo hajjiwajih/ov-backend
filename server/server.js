@@ -53,6 +53,6 @@ boot(app, __dirname, function (err) {
 });
 //var err = new Error('Ups, something broke!')
 //apm.captureError(err)
-apm.captureError(err, {
-  request: req // an instance of http.IncomingMessage
-})
+//apm.captureError(err, {
+  //request: req // an instance of http.IncomingMessage
+//})
