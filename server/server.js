@@ -51,5 +51,5 @@ boot(app, __dirname, function (err) {
   if (require.main === module)
     app.start();
 });
-var err = new Error('Ups, something broke!')
-apm.captureError(err)
+//var err = new Error('Ups, something broke!')
+//apm.captureError(err)
