@@ -51,17 +51,5 @@ boot(app, __dirname, function (err) {
   if (require.main === module)
     app.start();
 });
-apm.captureError(error, {
-  user: {
-    id: 'unique_id',
-    username: 'foo',
-    email: 'foo@example.com'
-  }
-})
-
-// Sending some arbitrary details using the `custom` field
-apm.captureError(error, {
-  custom: {
-    some_important_metric: 'foobar'
-  }
-})
+var err = new Error('Ups, something broke!')
+apm.captureError(err)
