@@ -50,7 +50,7 @@ boot(app, __dirname, function (err) {
     app.start();
     //app.use(function (req, res, next) {
     //throw new Error('Broke!')
-})
+//})
 //app.use(apm.middleware.connect())
 
 });
