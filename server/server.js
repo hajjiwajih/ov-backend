@@ -56,7 +56,7 @@ boot(app, __dirname, function (err) {
 //apm.captureError(err, {
   //request: req // an instance of http.IncomingMessage
 //})
-app.use(function (req, res, next) {
-  throw new Error('Broke!')
-})
-app.use(apm.middleware.connect())
+//app.use(function (req, res, next) {
+  //throw new Error('Broke!')
+//})
+//app.use(apm.middleware.connect())
