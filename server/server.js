@@ -48,18 +48,6 @@ boot(app, __dirname, function (err) {
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
-    //app.use(function (req, res, next) {
-    //throw new Error('Broke!')
-//})
-//app.use(apm.middleware.connect())
+    
 
 });
-//var err = new Error('Ups, something broke!')
-//apm.captureError(err)
-//apm.captureError(err, {
-  //request: req // an instance of http.IncomingMessage
-//})
-//app.use(function (req, res, next) {
-  //throw new Error('Broke!')
-//})
-//app.use(apm.middleware.connect())
