@@ -27,10 +27,6 @@ var apm = require('elastic-apm-node').start({
 // Set custom APM Server URL (default: http://localhost:8200 )
     serverUrl: 'http://172.30.127.105:8200',
   })
-app.use(function (req, res, next) {
-  throw new Error('Broke!')
-})
-//app.use(apm.middleware.connect())
 
 app.start = function () {
   // start the web server
@@ -52,6 +48,11 @@ boot(app, __dirname, function (err) {
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
+    app.use(function (req, res, next) {
+    throw new Error('Broke!')
+})
+//app.use(apm.middleware.connect())
+
 });
 //var err = new Error('Ups, something broke!')
 //apm.captureError(err)
