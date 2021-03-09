@@ -48,8 +48,8 @@ boot(app, __dirname, function (err) {
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
-    app.use(function (req, res, next) {
-    throw new Error('Broke!')
+    //app.use(function (req, res, next) {
+    //throw new Error('Broke!')
 })
 //app.use(apm.middleware.connect())
 
