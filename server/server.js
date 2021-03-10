@@ -51,3 +51,6 @@ boot(app, __dirname, function (err) {
     
 
 });
+apm.captureError(err, {
+  request: req // an instance of http.IncomingMessage
+})
