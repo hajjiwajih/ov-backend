@@ -18,15 +18,15 @@ const opts = {
 };
 const log = SimpleNodeLogger.createSimpleLogger(opts);
 //apm agent
-var apm = require('elastic-apm-node').start({
+//var apm = require('elastic-apm-node').start({
     
     // Set required service name (allowed characters: a-z, A-Z, 0-9, -, _, and space)
-    serviceName: 'backend',
+  //  serviceName: 'backend',
 // Use if APM Server requires a token
-    secretToken: '< Secret token >',
+    //secretToken: '< Secret token >',
 // Set custom APM Server URL (default: http://localhost:8200 )
-    serverUrl: 'http://172.30.229.23:8200',
-  })
+    //serverUrl: 'http://172.30.229.23:8200',
+  //})
 
 app.start = function () {
   // start the web server
